@@ -17,7 +17,7 @@ const damagingTestModel = ModelDamaging
 const damagingTestProbabilityFalse = 0.23
 const damagingTestProbabilityTrue = 0.73
 const damagingTestPrediction = true
-const damagingTestResponseTemplate = `{"enwiki":{"models":{"damaging":{"version":"0.5.1"}},"scores":{"%d":{"damaging":{"score":{"prediction":%t,"probability":{"false":%f,"true":%f}}}}}}}`
+const damagingTestResponseTemplate = `{"%s":{"models":{"damaging":{"version":"0.5.1"}},"scores":{"%d":{"damaging":{"score":{"prediction":%t,"probability":{"false":%f,"true":%f}}}}}}}`
 
 var damagingTestURL = fmt.Sprintf("/%s/%d/%s", damagingTestDBName, damagingTestRev, damagingTestModel)
 
@@ -28,6 +28,7 @@ func createDamagingServer() http.Handler {
 		w.WriteHeader(http.StatusOK)
 		data := fmt.Sprintf(
 			damagingTestResponseTemplate,
+			damagingTestDBName,
 			damagingTestRev,
 			damagingTestPrediction,
 			damagingTestProbabilityFalse,

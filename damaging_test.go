@@ -20,6 +20,13 @@ const damagingTestPrediction = true
 const damagingTestResponseTemplate = `{"%s":{"models":{"damaging":{"version":"0.5.1"}},"scores":{"%d":{"damaging":{"score":{"prediction":%t,"probability":{"false":%f,"true":%f}}}}}}}`
 
 var damagingTestURL = fmt.Sprintf("/%s/%d/%s", damagingTestDBName, damagingTestRev, damagingTestModel)
+var damagingTestMap = map[string]interface{}{
+	"prediction": true,
+	"probability": map[string]interface{}{
+		"true":  0.9,
+		"false": 0.1,
+	},
+}
 
 func createDamagingServer() http.Handler {
 	router := http.NewServeMux()
@@ -43,7 +50,7 @@ func createDamagingServer() http.Handler {
 	return router
 }
 
-func TestDamaging(t *testing.T) {
+func TestDamagingScoreOne(t *testing.T) {
 	srv := httptest.NewServer(createDamagingServer())
 	defer srv.Close()
 
@@ -55,4 +62,12 @@ func TestDamaging(t *testing.T) {
 	assert.Equal(t, damagingTestPrediction, score.Prediction)
 	assert.Equal(t, damagingTestProbabilityTrue, score.Probability.True)
 	assert.Equal(t, damagingTestProbabilityFalse, score.Probability.False)
+}
+
+func TestDamagingFromMap(t *testing.T) {
+	dmg := new(Damaging)
+	assert.NoError(t, dmg.fromMap(damagingTestMap))
+	assert.Equal(t, dmg.Prediction, damagingTestMap["prediction"].(bool))
+	assert.Equal(t, dmg.Probability.True, damagingTestMap["probability"].(map[string]interface{})["true"].(float64))
+	assert.Equal(t, dmg.Probability.False, damagingTestMap["probability"].(map[string]interface{})["false"].(float64))
 }

@@ -15,10 +15,10 @@ type Damaging struct {
 	} `json:"probability"`
 }
 
-func (d *Damaging) fromMap(score map[string]interface{}) error {
+func (dmg *Damaging) fromMap(score map[string]interface{}) error {
 	switch score["prediction"].(type) {
 	case bool:
-		d.Prediction = score["prediction"].(bool)
+		dmg.Prediction = score["prediction"].(bool)
 	default:
 		return ErrInvalidDataInterface
 	}
@@ -34,14 +34,14 @@ func (d *Damaging) fromMap(score map[string]interface{}) error {
 
 	switch probability["true"].(type) {
 	case float64:
-		d.Probability.True = probability["true"].(float64)
+		dmg.Probability.True = probability["true"].(float64)
 	default:
 		return ErrInvalidDataInterface
 	}
 
 	switch probability["false"].(type) {
 	case float64:
-		d.Probability.False = probability["false"].(float64)
+		dmg.Probability.False = probability["false"].(float64)
 	default:
 		return ErrInvalidDataInterface
 	}

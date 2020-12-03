@@ -15,6 +15,9 @@ var ErrModelNotSupported = errors.New("model is not supported")
 // ErrInvalidServerResponse server sent response in invalid format
 var ErrInvalidServerResponse = errors.New("invalid server response")
 
+// ErrInvalidDataInterface error for invalid param in data
+var ErrInvalidDataInterface = errors.New("invalid data interface")
+
 // NewClient create new ORES client
 func NewClient() *Client {
 	client := &Client{

@@ -2,7 +2,6 @@ package ores
 
 import (
 	"context"
-	"encoding/json"
 	"fmt"
 	"net/http"
 )
@@ -38,43 +37,26 @@ func (dr *damagingRequest) ScoreOne(ctx context.Context, dbName string, rev int)
 		return score, fmt.Errorf(errBadRequestMsg, status, string(data))
 	}
 
-	res := map[string]response{}
-	err = json.Unmarshal(data, &res)
+	models, err := parse(data, dbName, ModelDamaging, rev)
 
 	if err != nil {
 		return score, err
 	}
 
-	info, exists := res[dbName]
+	model := models[rev]
 
-	if !exists {
-		return score, ErrInvalidServerResponse
-	}
-
-	scores, exists := info.Scores[rev]
-
-	if !exists {
-		return score, ErrInvalidServerResponse
-	}
-
-	model, exists := scores[ModelDamaging]
-
-	if !exists {
-		return score, ErrInvalidServerResponse
-	}
-
-	switch model.Score["prediction"].(type) {
+	switch model["prediction"].(type) {
 	case bool:
-		score.Prediction = model.Score["prediction"].(bool)
+		score.Prediction = model["prediction"].(bool)
 	default:
 		return score, ErrInvalidServerResponse
 	}
 
 	var probability map[string]interface{}
 
-	switch model.Score["probability"].(type) {
+	switch model["probability"].(type) {
 	case map[string]interface{}:
-		probability = model.Score["probability"].(map[string]interface{})
+		probability = model["probability"].(map[string]interface{})
 	default:
 		return score, ErrInvalidServerResponse
 	}

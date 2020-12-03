@@ -66,7 +66,7 @@ func (cl *Client) DamagingScore(ctx context.Context, dbName string, rev int) (*D
 		return score, ErrInvalidServerResponse
 	}
 
-	probability := map[string]interface{}{}
+	var probability map[string]interface{}
 
 	switch model.Score["probability"].(type) {
 	case map[string]interface{}:

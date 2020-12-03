@@ -7,6 +7,8 @@ import (
 	"net/http"
 )
 
+const errBadRequestMsg = "status: '%d' body: '%s'"
+
 // Damaging struct for model
 type Damaging struct {
 	Prediction  bool `json:"prediction"`
@@ -35,7 +37,7 @@ func (dr *damagingRequest) ScoreOne(ctx context.Context, dbName string, rev int)
 	}
 
 	if status != http.StatusOK {
-		return score, fmt.Errorf("'%d' response status", status)
+		return score, fmt.Errorf(errBadRequestMsg, status, string(data))
 	}
 
 	res := map[string]response{}

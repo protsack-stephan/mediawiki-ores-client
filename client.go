@@ -7,6 +7,7 @@ import (
 
 const baseURL = "https://ores.wikimedia.org/v3/scores"
 const maxConnsPerHost = 4
+const errBadRequestMsg = "status: '%d' body: '%s'"
 
 // ErrModelNotSupported model is not supported error
 var ErrModelNotSupported = errors.New("model is not supported")

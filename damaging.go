@@ -7,8 +7,6 @@ import (
 	"net/http"
 )
 
-const errBadRequestMsg = "status: '%d' body: '%s'"
-
 // Damaging struct for model
 type Damaging struct {
 	Prediction  bool `json:"prediction"`

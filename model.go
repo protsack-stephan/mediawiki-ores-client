@@ -1,6 +1,9 @@
 package ores
 
 var support = map[string]map[Model]bool{}
+var models = map[Model]bool{
+	ModelDamaging: true,
+}
 
 // Supported ores models
 const (

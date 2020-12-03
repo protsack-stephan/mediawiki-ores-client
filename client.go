@@ -16,18 +16,25 @@ var ErrInvalidServerResponse = errors.New("invalid server response")
 
 // NewClient create new ORES client
 func NewClient() *Client {
-	return &Client{
-		baseURL,
-		&http.Client{
+	client := &Client{
+		url: baseURL,
+		httpClient: &http.Client{
 			Transport: &http.Transport{
 				MaxConnsPerHost: maxConnsPerHost,
 			},
 		},
 	}
+
+	client.Damaging = &damagingRequest{
+		client,
+	}
+
+	return client
 }
 
 // Client for ORES API
 type Client struct {
 	url        string
 	httpClient *http.Client
+	Damaging   *damagingRequest
 }

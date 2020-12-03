@@ -49,7 +49,7 @@ func TestDamaging(t *testing.T) {
 
 	client := NewClient()
 	client.url = srv.URL
-	score, err := client.DamagingScore(context.Background(), damagingTestDBName, damagingTestRev)
+	score, err := client.Damaging.ScoreOne(context.Background(), damagingTestDBName, damagingTestRev)
 
 	assert.NoError(t, err)
 	assert.Equal(t, damagingTestPrediction, score.Prediction)

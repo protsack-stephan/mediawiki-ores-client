@@ -10,7 +10,7 @@ import (
 func main() {
 	client := ores.NewClient()
 
-	score, err := client.DamagingScore(context.Background(), "enwiki", 1)
+	score, err := client.Damaging.ScoreOne(context.Background(), "enwiki", 1)
 
 	fmt.Println(score, err)
 }

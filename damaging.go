@@ -16,15 +16,19 @@ type Damaging struct {
 	} `json:"probability"`
 }
 
+type damagingRequest struct {
+	client *Client
+}
+
 // DamagingScore get damaging score for revision
-func (cl *Client) DamagingScore(ctx context.Context, dbName string, rev int) (*Damaging, error) {
+func (dr *damagingRequest) ScoreOne(ctx context.Context, dbName string, rev int) (*Damaging, error) {
 	score := new(Damaging)
 
 	if !ModelDamaging.Supports(dbName) {
 		return score, ErrModelNotSupported
 	}
 
-	data, status, err := req(ctx, cl.httpClient, http.MethodGet, cl.url+fmt.Sprintf("/%s/%d/%s", dbName, rev, ModelDamaging), nil)
+	data, status, err := req(ctx, dr.client.httpClient, http.MethodGet, dr.client.url+fmt.Sprintf("/%s/%d/%s", dbName, rev, ModelDamaging), nil)
 
 	if err != nil {
 		return score, err

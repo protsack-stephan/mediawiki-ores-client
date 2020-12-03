@@ -54,5 +54,4 @@ func TestDamaging(t *testing.T) {
 	assert.Equal(t, damagingTestPrediction, score.Prediction)
 	assert.Equal(t, damagingTestProbabilityTrue, score.Probability.True)
 	assert.Equal(t, damagingTestProbabilityFalse, score.Probability.False)
-	fmt.Println(score, err)
 }

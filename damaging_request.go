@@ -6,12 +6,13 @@ import (
 	"net/http"
 )
 
-type damagingRequest struct {
+// DamagingRequest request for scores of damaging model
+type DamagingRequest struct {
 	client *Client
 }
 
-// DamagingScore get damaging score for revision
-func (dr *damagingRequest) ScoreOne(ctx context.Context, dbName string, rev int) (*Damaging, error) {
+// ScoreOne get damaging score for revision
+func (dr *DamagingRequest) ScoreOne(ctx context.Context, dbName string, rev int) (*Damaging, error) {
 	score := new(Damaging)
 
 	if !ModelDamaging.Supports(dbName) {

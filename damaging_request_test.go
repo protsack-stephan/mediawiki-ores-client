@@ -49,7 +49,7 @@ func TestDamagingRequestScoreOne(t *testing.T) {
 
 	client := NewClient()
 	client.url = srv.URL
-	score, err := client.Damaging.ScoreOne(context.Background(), damagingReqTestDBName, damagingReqTestRev)
+	score, err := client.Damaging().ScoreOne(context.Background(), damagingReqTestDBName, damagingReqTestRev)
 
 	assert.NoError(t, err)
 	assert.Equal(t, damagingReqTestPrediction, score.Prediction)

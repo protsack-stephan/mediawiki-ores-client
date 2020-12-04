@@ -29,7 +29,7 @@ func NewClient() *Client {
 		},
 	}
 
-	client.Damaging = &damagingRequest{
+	client.damagingRequest = &DamagingRequest{
 		client,
 	}
 
@@ -38,7 +38,12 @@ func NewClient() *Client {
 
 // Client for ORES API
 type Client struct {
-	url        string
-	httpClient *http.Client
-	Damaging   *damagingRequest
+	url             string
+	httpClient      *http.Client
+	damagingRequest *DamagingRequest
+}
+
+// Damaging reqest for damaging model
+func (cl *Client) Damaging() *DamagingRequest {
+	return cl.damagingRequest
 }

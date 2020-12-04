@@ -15,6 +15,9 @@ var ErrModelNotSupported = errors.New("model is not supported")
 // ErrInvalidServerResponse server sent response in invalid format
 var ErrInvalidServerResponse = errors.New("invalid server response")
 
+// ErrInvalidDataInterface error for invalid param in data
+var ErrInvalidDataInterface = errors.New("invalid data interface")
+
 // NewClient create new ORES client
 func NewClient() *Client {
 	client := &Client{
@@ -26,7 +29,7 @@ func NewClient() *Client {
 		},
 	}
 
-	client.Damaging = &damagingRequest{
+	client.damagingRequest = &DamagingRequest{
 		client,
 	}
 
@@ -35,7 +38,12 @@ func NewClient() *Client {
 
 // Client for ORES API
 type Client struct {
-	url        string
-	httpClient *http.Client
-	Damaging   *damagingRequest
+	url             string
+	httpClient      *http.Client
+	damagingRequest *DamagingRequest
+}
+
+// Damaging reqest for damaging model
+func (cl *Client) Damaging() *DamagingRequest {
+	return cl.damagingRequest
 }

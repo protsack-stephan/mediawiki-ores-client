@@ -43,7 +43,7 @@ func createDamagingServer() http.Handler {
 	return router
 }
 
-func TestDamagingScoreOne(t *testing.T) {
+func TestDamagingRequestScoreOne(t *testing.T) {
 	srv := httptest.NewServer(createDamagingServer())
 	defer srv.Close()
 

@@ -56,3 +56,8 @@ func TestDamagingRequestScoreOne(t *testing.T) {
 	assert.Equal(t, damagingReqTestProbabilityTrue, score.Probability.True)
 	assert.Equal(t, damagingReqTestProbabilityFalse, score.Probability.False)
 }
+
+func TestDamagingRequestScoreMany(t *testing.T) {
+	srv := httptest.NewServer(createDamagingServer())
+	defer srv.Close()
+}

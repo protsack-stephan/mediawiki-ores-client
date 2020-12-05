@@ -3,7 +3,6 @@ package ores
 import (
 	"context"
 	"fmt"
-	"log"
 	"net/http"
 	"net/http/httptest"
 	"testing"
@@ -33,11 +32,7 @@ func createDamagingServer() http.Handler {
 			damagingReqTestPrediction,
 			damagingReqTestProbabilityFalse,
 			damagingReqTestProbabilityTrue)
-		_, err := w.Write([]byte(data))
-
-		if err != nil {
-			log.Panic(err)
-		}
+		w.Write([]byte(data))
 	})
 
 	return router

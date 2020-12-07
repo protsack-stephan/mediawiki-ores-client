@@ -24,4 +24,16 @@ for revID, score := range scores {
 }
 ```
 
+If you need pass custom `base URL` or another options you can use `ClientBuilder`:
+```go
+client := ores.NewBuilder().
+  URL("https://ores.wikimedia.org/v3/scores").
+  HTTPClient(&http.Client{}).
+  Build()
+
+score, err := client.Damaging().ScoreOne(context.Background(), "enwiki", 1)
+
+fmt.Println(score, err)
+```
+
 ### *Note that right now we are supporting `damaging` model only. For more information look at [https://ores.wikimedia.org/v3/#/](https://ores.wikimedia.org/v3/#/) and [https://ores.wikimedia.org/](https://ores.wikimedia.org/).

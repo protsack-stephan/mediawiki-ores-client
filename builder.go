@@ -2,14 +2,14 @@ package ores
 
 import "net/http"
 
-// NewBuilder creat new client builder
+// NewBuilder new builder instance
 func NewBuilder() *ClientBuilder {
 	return &ClientBuilder{
 		NewClient(),
 	}
 }
 
-// ClientBuilder builder for ORES client
+// ClientBuilder configurator for ORES client
 type ClientBuilder struct {
 	client *Client
 }
@@ -20,13 +20,13 @@ func (cb *ClientBuilder) URL(url string) *ClientBuilder {
 	return cb
 }
 
-// HTTPClient set custom client if needed
+// HTTPClient set custom HTTP client if needed
 func (cb *ClientBuilder) HTTPClient(httpClient *http.Client) *ClientBuilder {
 	cb.client.httpClient = httpClient
 	return cb
 }
 
-// Build create new client instance
+// Build create new client instance based on provided configuration
 func (cb *ClientBuilder) Build() *Client {
 	return cb.client
 }

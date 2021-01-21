@@ -2,8 +2,11 @@ package ores
 
 import (
 	"encoding/json"
+	"fmt"
 	"io/ioutil"
 	"log"
+	"path/filepath"
+	"runtime"
 )
 
 var support = map[string]map[Model]bool{}
@@ -14,7 +17,8 @@ func init() {
 		Models map[Model]ModelInfo `json:"models"`
 	})
 
-	data, err := ioutil.ReadFile("./config/support.json")
+	_, b, _, _ := runtime.Caller(0)
+	data, err := ioutil.ReadFile(fmt.Sprintf("%s/config/support.json", filepath.Dir(b)))
 
 	if err != nil {
 		log.Panic(err)

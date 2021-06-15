@@ -7,8 +7,9 @@ import (
 )
 
 func TestClient(t *testing.T) {
+	assert := assert.New(t)
 	client := NewClient()
-	assert.NotNil(t, client)
-	assert.NotNil(t, client.httpClient)
-	assert.Equal(t, baseURL, client.url)
+	assert.NotNil(client)
+	assert.NotNil(client.httpClient)
+	assert.Equal(baseURL, client.url)
 }

@@ -10,7 +10,7 @@ import (
 )
 
 var support = map[string]map[Model]bool{}
-var models = []Model{ModelDamaging}
+var models = []Model{ModelDamaging, ModelArticleQuality, ModelGoodFaith}
 
 func init() {
 	info := make(map[string]struct {
@@ -43,7 +43,9 @@ func init() {
 
 // Supported ores models
 const (
-	ModelDamaging Model = "damaging"
+	ModelDamaging       Model = "damaging"
+	ModelGoodFaith      Model = "goodfaith"
+	ModelArticleQuality Model = "articlequality"
 )
 
 // ModelInfo all the model meta data

@@ -2,7 +2,7 @@
   "arwiki": {
     "models": {
       "articletopic": {
-        "version": "1.2.0"
+        "version": "1.3.0"
       },
       "damaging": {
         "version": "0.5.0"
@@ -42,7 +42,7 @@
   "cswiki": {
     "models": {
       "articletopic": {
-        "version": "1.2.0"
+        "version": "1.3.0"
       },
       "damaging": {
         "version": "0.6.0"
@@ -75,7 +75,7 @@
         "version": "0.8.2"
       },
       "articletopic": {
-        "version": "1.2.0"
+        "version": "1.3.0"
       },
       "damaging": {
         "version": "0.5.1"
@@ -84,7 +84,7 @@
         "version": "0.2.1"
       },
       "drafttopic": {
-        "version": "1.2.0"
+        "version": "1.3.0"
       },
       "goodfaith": {
         "version": "0.5.1"
@@ -145,6 +145,9 @@
     "models": {
       "articlequality": {
         "version": "0.8.1"
+      },
+      "articletopic": {
+        "version": "1.4.0"
       },
       "wp10": {
         "version": "0.8.1"
@@ -239,11 +242,21 @@
   },
   "huwiki": {
     "models": {
+      "articletopic": {
+        "version": "1.4.0"
+      },
       "damaging": {
         "version": "0.5.1"
       },
       "goodfaith": {
         "version": "0.5.1"
+      }
+    }
+  },
+  "hywiki": {
+    "models": {
+      "articletopic": {
+        "version": "1.4.0"
       }
     }
   },
@@ -284,7 +297,7 @@
   "kowiki": {
     "models": {
       "articletopic": {
-        "version": "1.2.0"
+        "version": "1.3.0"
       },
       "damaging": {
         "version": "0.5.0"
@@ -306,6 +319,9 @@
   },
   "nlwiki": {
     "models": {
+      "articlequality": {
+        "version": "0.8.0"
+      },
       "damaging": {
         "version": "0.5.1"
       },
@@ -381,6 +397,9 @@
       "articlequality": {
         "version": "0.8.2"
       },
+      "articletopic": {
+        "version": "1.3.0"
+      },
       "damaging": {
         "version": "0.5.1"
       },
@@ -407,6 +426,9 @@
   },
   "srwiki": {
     "models": {
+      "articletopic": {
+        "version": "1.4.0"
+      },
       "damaging": {
         "version": "0.5.1"
       },
@@ -441,7 +463,7 @@
         "version": "0.8.2"
       },
       "articletopic": {
-        "version": "1.2.0"
+        "version": "1.3.0"
       },
       "damaging": {
         "version": "0.0.3"
@@ -450,7 +472,7 @@
         "version": "0.2.1"
       },
       "drafttopic": {
-        "version": "1.2.0"
+        "version": "1.3.0"
       },
       "goodfaith": {
         "version": "0.0.3"
@@ -484,6 +506,9 @@
       "articlequality": {
         "version": "0.8.0"
       },
+      "articletopic": {
+        "version": "1.3.0"
+      },
       "damaging": {
         "version": "0.5.1"
       },
@@ -495,7 +520,7 @@
   "viwiki": {
     "models": {
       "articletopic": {
-        "version": "1.2.0"
+        "version": "1.4.0"
       },
       "reverted": {
         "version": "0.5.0"
@@ -512,6 +537,9 @@
       },
       "itemquality": {
         "version": "0.5.0"
+      },
+      "itemtopic": {
+        "version": "1.2.0"
       }
     }
   },

@@ -2,6 +2,7 @@ package ores
 
 import (
 	"context"
+	"fmt"
 	"log"
 	"net/http"
 	"net/http/httptest"
@@ -32,8 +33,7 @@ func TestReq(t *testing.T) {
 	srv := httptest.NewServer(createReqServer())
 	defer srv.Close()
 
-	body, status, err := req(context.Background(), http.DefaultClient, http.MethodGet, srv.URL+reqTestURL, nil)
-
+	body, status, err := req(context.Background(), http.DefaultClient, http.MethodGet, fmt.Sprintf("%s%s", srv.URL, reqTestURL), nil)
 	assert.Equal(t, http.StatusOK, status)
 	assert.Nil(t, err)
 	assert.Equal(t, reqTestBody, string(body))

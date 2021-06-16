@@ -1,0 +1,103 @@
+{
+  "testwiki": {
+    "models": {
+      "articlequality": {
+        "version": "0.8.2"
+      },
+      "damaging": {
+        "version": "0.0.3"
+      },
+      "goodfaith": {
+        "version": "0.0.3"
+      }
+    },
+    "scores": {
+      "1": {
+        "articlequality": {
+          "score": {
+            "prediction": "Stub",
+            "probability": {
+              "B": 0.020367374509460245,
+              "C": 0.04352819459684604,
+              "FA": 0.0022980719419542655,
+              "GA": 0.0032807838747585414,
+              "Start": 0.1400688787789047,
+              "Stub": 0.7904566962980761
+            }
+          }
+        },
+        "damaging": {
+          "score": {
+            "prediction": false,
+            "probability": {
+              "false": 0.9,
+              "true": 0.1
+            }
+          }
+        },
+        "goodfaith": {
+          "score": {
+            "prediction": false,
+            "probability": {
+              "false": 0.9,
+              "true": 0.1
+            }
+          }
+        }
+      },
+      "12": {
+        "articlequality": {
+          "score": {
+            "prediction": "Stub",
+            "probability": {
+              "B": 0.012984496590508153,
+              "C": 0.010287700641884374,
+              "FA": 0.0018920636836770905,
+              "GA": 0.002367130556685589,
+              "Start": 0.03267351096925067,
+              "Stub": 0.9397950975579943
+            }
+          }
+        },
+        "damaging": {
+          "score": {
+            "prediction": false,
+            "probability": {
+              "false": 0.79,
+              "true": 0.21
+            }
+          }
+        },
+        "goodfaith": {
+          "score": {
+            "prediction": false,
+            "probability": {
+              "false": 0.79,
+              "true": 0.21
+            }
+          }
+        }
+      },
+      "122": {
+        "articlequality": {
+          "error": {
+            "message": "RevisionNotFound: Could not find revision ({revision}:122)",
+            "type": "RevisionNotFound"
+          }
+        },
+        "damaging": {
+          "error": {
+            "message": "RevisionNotFound: Could not find revision ({revision}:122)",
+            "type": "RevisionNotFound"
+          }
+        },
+        "goodfaith": {
+          "error": {
+            "message": "RevisionNotFound: Could not find revision ({revision}:122)",
+            "type": "RevisionNotFound"
+          }
+        }
+      }
+    }
+  }
+}

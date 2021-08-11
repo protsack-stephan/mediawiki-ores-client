@@ -1,4 +1,6 @@
-{
+package ores
+
+const config = `{
   "arwiki": {
     "models": {
       "articletopic": {
@@ -553,4 +555,4 @@
       }
     }
   }
-}
+}`
